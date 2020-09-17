@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- JQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" integrity="sha256-aPeK/N8IHpHsvPBCf49iVKMdusfobKo2oxF8lRruWJg=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-checkradio@1.1.1/dist/css/bulma-checkradio.min.css" integrity="sha256-ej+83V4GB9ok2X22EvJ/ggEzzJ+gaZjm7G/Neq7wboQ=" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>WhatsApp Link Generator</title>
+</head>
+
+<body>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-4">
+            <div class="card">
+              <img class="wa-logo" src="./images/whatsapp.png" alt="WhatsApp">
+
+              <div class="card-content">
+                <form id="generateWhatsAppLink">
+                  <div class="field">
+                    <label class="label">What's your Phone Number?</label>
+
+                    <div class="control">
+                      <input class="input" type="number" placeholder="e.g. 393640576312" id="phoneNumber" required>
+                    </div>
+
+                    <p class="help"><span class="is-italic">Required.</span> Include the country code followed by the area code.</p>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">What's the Prefilled Message?</label>
+
+                    <div class="control">
+                      <input class="input" type="text" placeholder="e.g. Hello, I need information about..." id="message">
+                    </div>
+
+                    <p class="help"><span class="is-italic">Optional.</span> A well-written message increases engagement and reduces friction.</p>
+                  </div>
+
+                  <div class="field">
+                    <input class="is-checkradio" type="checkbox" id="useQRCode">
+
+                    <label for="useQRCode">Include QR Code</label>
+                  </div>
+
+                  <button tpye="submit" class="button is-fullwidth is-primary">
+                    <span class="icon">
+                      <i class="fas fa-link"></i>
+                    </span>
+
+                    <span>Generate your Link!</span>
+                  </button>
+                </form>
+
+                <div class="is-hidden" id="resultsBox">
+                  <hr>
+
+                  <div class="field is-horizontal">
+                    <div class="field-body">
+                      <div class="field is-expanded">
+                        <label class="label">Here's your Link:</label>
+
+                        <div class="field has-addons">
+                          <div class="control is-expanded">
+                            <input class="input" type="text" readonly id="whatsAppLink">
+                          </div>
+
+                          <div class="control">
+                            <button class="button" id="copyLink">
+                              <span class="icon is-small">
+                                <i class="fas fa-copy"></i>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <p class="help">We sugget using a URL shortener like <a href="https://cutt.ly">Cutt.ly</a> to keep your link concise, favoring readability and sharing.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Font Awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</body>
+
+</html>

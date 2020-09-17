@@ -1,0 +1,8 @@
+.wa-logo {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    z-index: 1000;
+    top: -24px;
+    right: -24px;
+}
