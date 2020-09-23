@@ -1,18 +1,18 @@
 $(document).ready(function () {
-    $("#copyLink").on("click", function () { navigator.clipboard.writeText($("#whatsAppLink").val()); })
+    $("#copyLinkButton").on("click", function () { navigator.clipboard.writeText($("#linkText").val()); })
 
-    $("#generateWhatsAppLink").on("submit", function (e) {
+    $("#generateLinkForm").on("submit", function (e) {
         e.preventDefault();
 
-        const phoneNumber = $("#phoneNumber").val();
-        const message = $("#message").val();
-        const useQRCode = !!$("#useQRCode").attr("checked");
+        const phoneNumber = $("#phoneNumberText").val();
+        const message = $("#messageText").val();
+        const useQRCode = !!$("#useQRCodeToggle").attr("checked");
 
         let link = (!!message)
             ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
             : `https://api.whatsapp.com/send?phone=${phoneNumber}`;
 
-        $("#whatsAppLink").val(link);
+        $("#linkText").val(link);
 
         if (useQRCode) {
             QRCode.toDataURL(link, {
@@ -35,5 +35,5 @@ $(document).ready(function () {
         }
     });
 
-    $("#useQRCode").on("click", function () { $(this).attr("checked", !$(this).attr("checked")); })
+    $("#useQRCodeToggle").on("click", function () { $(this).attr("checked", !$(this).attr("checked")); })
 });

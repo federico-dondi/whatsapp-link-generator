@@ -47,12 +47,12 @@
               <img class="wa-logo" src="./images/whatsapp.png" alt="WhatsApp">
 
               <div class="card-content">
-                <form id="generateWhatsAppLink">
+                <form id="generateLinkForm">
                   <div class="field">
                     <label class="label">What's your Phone Number?</label>
 
                     <div class="control">
-                      <input class="input" type="number" placeholder="e.g. 393640576312" id="phoneNumber" required>
+                      <input class="input" type="number" placeholder="e.g. 393640576312" id="phoneNumberText" required>
                     </div>
 
                     <p class="help"><span class="is-italic">Required.</span> Include the country code followed by the area code.</p>
@@ -62,16 +62,16 @@
                     <label class="label">What's the Prefilled Message?</label>
 
                     <div class="control">
-                      <input class="input" type="text" placeholder="e.g. Hello, I need information about..." id="message">
+                      <input class="input" type="text" placeholder="e.g. Hello, I need information about..." id="messageText">
                     </div>
 
                     <p class="help"><span class="is-italic">Optional.</span> A well-written message increases engagement and reduces friction.</p>
                   </div>
 
                   <div class="field">
-                    <input class="is-checkradio" type="checkbox" id="useQRCode">
+                    <input class="is-checkradio" type="checkbox" id="useQRCodeToggle">
 
-                    <label for="useQRCode">Include QR Code</label>
+                    <label for="useQRCodeToggle">Include QR Code</label>
                   </div>
 
                   <button tpye="submit" class="button is-fullwidth is-primary">
@@ -92,11 +92,11 @@
 
                       <div class="field has-addons">
                         <div class="control is-expanded">
-                          <input class="input" type="text" readonly id="whatsAppLink">
+                          <input class="input" type="text" readonly id="linkText">
                         </div>
 
                         <div class="control">
-                          <button class="button" id="copyLink">
+                          <button class="button" id="copyLinkButton">
                             <span class="icon is-small">
                               <i class="fas fa-copy"></i>
                             </span>
