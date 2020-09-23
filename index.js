@@ -1,29 +1,38 @@
 $(document).ready(function () {
-    let whatsAppLink = undefined
-    let whatsAppQRCode = undefined
-
-    $.get("https://restcountries.eu/rest/v2/all")
-        .done(function (data) {
-        })
-        .fail(function (xhr) {
-        });
-
-    $("#copyLink").on("click", function () { navigator.clipboard.writeText(whatsAppLink); })
+    $("#copyLink").on("click", function () { navigator.clipboard.writeText($("#whatsAppLink").val()); })
 
     $("#generateWhatsAppLink").on("submit", function (e) {
         e.preventDefault();
 
-        let phoneNumber = $("#phoneNumber").val();
-        let message = $("#message").val();
-        let useQRCode = !!$("#useQRCode").attr("checked");
+        const phoneNumber = $("#phoneNumber").val();
+        const message = $("#message").val();
+        const useQRCode = !!$("#useQRCode").attr("checked");
 
-        $("#resultsBox").removeClass("is-hidden");
-
-        whatsAppLink = (!!message) 
+        let link = (!!message)
             ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
             : `https://api.whatsapp.com/send?phone=${phoneNumber}`;
 
-        $("#whatsAppLink").val(whatsAppLink);
+        $("#whatsAppLink").val(link);
+
+        if (useQRCode) {
+            QRCode.toDataURL(link, {
+                errorCorrectionLevel: 'H',
+                type: 'image/jpeg',
+                quality: 0.3,
+                margin: 1,
+                color: {
+                    dark: "#000000",
+                    light: "#FFFFFF"
+                }
+            }, function (err, url) {
+                // Initialize QRCode download with <a> 
+                const a = document.createElement("a");
+
+                a.href = url;
+                a.setAttribute("download", "QRCode.JPEG");
+                a.click();
+            });
+        }
     });
 
     $("#useQRCode").on("click", function () { $(this).attr("checked", !$(this).attr("checked")); })
