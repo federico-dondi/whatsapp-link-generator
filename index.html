@@ -49,15 +49,28 @@
               <div class="card-content">
                 <form id="generateLinkForm">
                   <div class="field">
-                    <label class="label">What's your Phone Number?</label>
-
-                    <div class="control">
-                      <input class="input" type="number" placeholder="e.g. 393640576312" id="phoneNumberText" required>
+                    <div class="field-label label has-text-left">
+                      <label class="label">What's your Phone Number? * </label>
                     </div>
 
-                    <p class="help"><span class="is-italic">Required.</span> Include the country code followed by the area code.</p>
-                  </div>
+                    <div class="field-body">
+                      <div class="field is-expanded">
+                        <div class="field has-addons">
+                          <div class="control">
+                            <span class="select">
+                              <select id="callingCodeOpt">
+                              </select>
+                            </span>
+                          </div>
 
+                          <div class="control is-expanded">
+                            <input class="input" type="number" placeholder="e.g. 3640576312" id="phoneNumberText" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                   <div class="field">
                     <label class="label">What's the Prefilled Message?</label>
 
@@ -65,7 +78,7 @@
                       <input class="input" type="text" placeholder="e.g. Hello, I need information about..." id="messageText">
                     </div>
 
-                    <p class="help"><span class="is-italic">Optional.</span> A well-written message increases engagement and reduces friction.</p>
+                    <p class="help">Optionally include a well-written message to increase engagement and reduce friction.</p>
                   </div>
 
                   <div class="field">

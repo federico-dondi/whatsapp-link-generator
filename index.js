@@ -1,10 +1,27 @@
 $(document).ready(function () {
+
+    fetch("https://restcountries.eu/rest/v2/all?fields=callingCodes;alpha3Code")
+        .then((res) => res.json())
+        .then((res) => {
+            let dropdown = $("#callingCodeOpt");
+
+            $.each(res, function () {
+                dropdown.append(
+                    $("<option></option>", {
+                        "value": this.callingCodes[0],
+                        "text": this.alpha3Code
+                    })
+                );
+            });
+        })
+
     $("#copyLinkButton").on("click", function () { navigator.clipboard.writeText($("#linkText").val()); })
 
     $("#generateLinkForm").on("submit", function (e) {
         e.preventDefault();
 
-        const phoneNumber = $("#phoneNumberText").val();
+        const callingCode = $("#callingCodeOpt").val();
+        const phoneNumber = callingCode + $("#phoneNumberText").val();
         const message = $("#messageText").val();
         const useQRCode = !!$("#useQRCodeToggle").attr("checked");
 
