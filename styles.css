@@ -6,3 +6,10 @@
     top: -24px;
     right: -24px;
 }
+
+@media only screen and (max-width: 414px) {
+    .wa-logo {
+        width: 48px;
+        height: 48px;
+    }
+}
